@@ -1,7 +1,8 @@
 body {
 	margin: 0;
-	font-family: Inter;
-	color: white;
+	font-family: "JetBrains Mono", monospace;
+	font-weight: 100;
+	color: #c6b3b4;
 
 	display: flex;
 	justify-content: center;
@@ -10,6 +11,8 @@ body {
 	height: 100vh;
 
 	background: linear-gradient(140deg, #5a1c1c, #2c0e0e);
+
+	z-index: -1;
 
 	overflow: hidden;
 }
@@ -23,13 +26,15 @@ body {
 
 	text-align: center;
 
-	z-index: 2;
+	z-index: 10;
 }
 
 /* title */
 
 h1 {
-	font-weight: 600;
+	font-family: "Cookie", cursive;
+	font-size: 4rem;
+	font-weight: 400;
 
 	margin-bottom: 4px;
 }
@@ -38,6 +43,38 @@ h1 {
 	opacity: 0.8;
 
 	margin-bottom: 30px;
+}
+
+/* profile logo */
+
+.profile-logo {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin-bottom: 30px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(5px);
+}
+
+/* watermark */
+
+.watermark {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100vw;
+	max-width: 800px;
+	opacity: 0.045;
+	z-index: 1;
+	pointer-events: none;
+	user-select: none;
+}
+
+.watermark img {
+	width: 100%;
+	height: auto;
 }
 
 /* links */
@@ -67,9 +104,10 @@ h1 {
 
 	text-decoration: none;
 
-	color: white;
-
-	font-weight: 500;
+	color: #c6b3b4;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 16px;
+	font-weight: 300;
 
 	background: rgba(255, 255, 255, 0.08);
 
@@ -121,6 +159,8 @@ h1 {
 	filter: blur(80px);
 
 	opacity: 0.6;
+
+	z-index: 0;
 
 	animation: float 16s infinite linear;
 }
