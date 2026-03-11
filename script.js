@@ -18,14 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}, 1500);
 
-	// --- 2. Magnetic Effect ---
+	// --- 2. Magnetic & Glimmer Effect ---
 	buttons.forEach((btn) => {
 		btn.addEventListener("mousemove", (e) => {
 			const rect = btn.getBoundingClientRect();
-			const x = e.clientX - rect.left - rect.width / 2;
-			const y = e.clientY - rect.top - rect.height / 2;
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
 
-			btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px) scale(1.02)`;
+			// Update CSS variables for glimmer
+			btn.style.setProperty("--x", `${x}px`);
+			btn.style.setProperty("--y", `${y}px`);
+
+			// Magnetic transform
+			const centerX = x - rect.width / 2;
+			const centerY = y - rect.height / 2;
+			btn.style.transform = `translate(${centerX * 0.3}px, ${centerY * 0.5}px) scale(1.02)`;
 		});
 
 		btn.addEventListener("mouseleave", () => {

@@ -287,34 +287,23 @@ h1 {
 .glass-btn::after {
 	content: "";
 	position: absolute;
-	top: -50%;
-	left: -50%;
-	width: 200%;
-	height: 200%;
-	background: conic-gradient(
-		from 0deg,
-		transparent,
-		rgba(198, 179, 180, 0.3),
-		transparent 30%
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(
+		600px circle at var(--x, 50%) var(--y, 50%),
+		rgba(198, 179, 180, 0.1),
+		transparent 40%
 	);
-	animation: rotateBeam 4s linear infinite;
 	pointer-events: none;
 	opacity: 0;
-	transition: opacity 0.3s ease;
+	transition: opacity 0.5s ease;
 	z-index: -1;
 }
 
 .glass-btn:hover::after {
 	opacity: 1;
-}
-
-@keyframes rotateBeam {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
 }
 
 /* liquid hover */
