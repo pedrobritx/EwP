@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400&family=Cookie&family=Outfit:wght@300;400;600&display=swap");
 
+/* Ensure background extends behind Safari bars */
+html {
+	background: #2c0e0e;
+}
+
 body {
 	margin: 0;
 	font-family: "JetBrains Mono", monospace;
@@ -10,24 +15,25 @@ body {
 	justify-content: center;
 	align-items: center;
 
-	height: 100vh;
+	min-height: 100vh;
+	min-height: 100dvh;
 
 	background: linear-gradient(140deg, #5a1c1c, #2c0e0e);
 
 	z-index: -1;
 
-	overflow: hidden;
+	overflow-x: hidden;
+	padding: calc(40px + env(safe-area-inset-top)) 16px calc(40px + env(safe-area-inset-bottom));
+	box-sizing: border-box;
 }
 
 /* container */
 
 .container {
 	position: relative;
-
-	width: 320px;
-
+	width: 100%;
+	max-width: 360px;
 	text-align: center;
-
 	z-index: 10;
 }
 
@@ -35,10 +41,10 @@ body {
 
 h1 {
 	font-family: "Cookie", cursive;
-	font-size: 4rem;
+	font-size: 3rem;
 	font-weight: 400;
-
 	margin-bottom: 4px;
+	line-height: 1.1;
 }
 
 .subtitle {
@@ -133,10 +139,10 @@ h1 {
 /* profile logo */
 
 .profile-logo {
-	width: 120px;
-	height: 120px;
+	width: 90px;
+	height: 90px;
 	border-radius: 50%;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 	border: 2px solid rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(5px);
@@ -172,10 +178,8 @@ h1 {
 
 .links {
 	display: flex;
-
 	flex-direction: column;
-
-	gap: 16px;
+	gap: 12px;
 }
 
 /* glass buttons */
@@ -185,12 +189,12 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	padding: 16px;
+	padding: 14px;
 	border-radius: 14px;
 	text-decoration: none;
 	color: #c6b3b4;
 	font-family: "JetBrains Mono", monospace;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 300;
 	background: rgba(255, 255, 255, 0.08);
 	border: 1px solid rgba(255, 255, 255, 0.15);
@@ -319,21 +323,6 @@ h1 {
 	transform: scale(0.95);
 }
 
-/* liquid hover */
-
-.glass-btn:hover {
-	background: rgba(255, 255, 255, 0.15);
-
-	transform: translateY(-4px) scale(1.02);
-
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-}
-
-/* liquid press */
-
-.glass-btn:active {
-	transform: scale(0.95);
-}
 
 /* icons */
 
@@ -344,21 +333,15 @@ h1 {
 /* glass blobs */
 
 .blob {
-	position: absolute;
-
-	width: 350px;
-
-	height: 350px;
-
+	position: fixed;
+	width: 250px;
+	height: 250px;
 	border-radius: 50%;
-
 	filter: blur(80px);
-
 	opacity: 0.6;
-
 	z-index: 0;
-
 	animation: float 16s infinite linear;
+	pointer-events: none;
 }
 
 .blob1 {
