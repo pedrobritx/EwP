@@ -4,6 +4,22 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+		<meta
+			name="description"
+			content="English with Pedro - Premium online lessons for individuals and groups."
+		/>
+		<meta
+			name="keywords"
+			content="English teacher, ESL, online lessons, learn English, Pedro Brito"
+		/>
+		<meta property="og:title" content="English with Pedro" />
+		<meta
+			property="og:description"
+			content="Experience premium, tailored English lessons with a focus on communication and growth."
+		/>
+		<meta property="og:image" content="logo.png" />
+		<meta property="og:type" content="website" />
+
 		<title>English with Pedro</title>
 
 		<link rel="icon" type="image/png" href="logo.png" />
@@ -22,49 +38,105 @@
 	</head>
 
 	<body>
-		<div class="blob blob1"></div>
-		<div class="blob blob2"></div>
-		<div class="blob blob3"></div>
-
-		<div class="watermark">
-			<img src="logo.png" alt="" />
+		<div id="loader">
+			<img src="logo.png" alt="Loading..." />
 		</div>
 
-		<div class="container">
-			<img src="logo.png" class="profile-logo" alt="Pedro Logo" />
+		<div class="lang-toggle" id="langToggle">
+			<span class="active">PT</span>
+			<span>EN</span>
+		</div>
 
-			<h1>English with Pedro</h1>
+		<div class="main-content" id="mainContent">
+			<div class="blob blob1"></div>
+			<div class="blob blob2"></div>
+			<div class="blob blob3"></div>
 
-			<p class="subtitle">Online English Lessons</p>
+			<div class="watermark">
+				<img src="logo.png" alt="" />
+			</div>
 
-			<div class="links">
-				<a
-					class="glass-btn"
-					href="https://calendar.app.google/aBgQfrGp6K5Vo17Y8"
+			<div class="container">
+				<img src="logo.png" class="profile-logo" alt="Pedro Logo" />
+
+				<h1 data-pt="English with Pedro" data-en="English with Pedro">
+					English with Pedro
+				</h1>
+
+				<p
+					class="subtitle"
+					data-pt="Online English Lessons"
+					data-en="Online English Lessons"
 				>
-					<i class="bi bi-calendar-check"></i>
-					Agende uma aula
-				</a>
+					Online English Lessons
+				</p>
 
-				<a class="glass-btn" href="https://wa.me/5561981015565">
-					<i class="bi bi-whatsapp"></i>
-					WhatsApp
-				</a>
+				<div class="links">
+					<a
+						class="glass-btn btn-stagger"
+						href="https://calendar.app.google/aBgQfrGp6K5Vo17Y8"
+						data-pt="Agende uma aula"
+						data-en="Book a lesson"
+					>
+						<i class="bi bi-calendar-check"></i>
+						<span>Agende uma aula</span>
+					</a>
 
-				<a class="glass-btn" href="mailto:teacher.pedro.brito@gmail.com">
-					<i class="bi bi-envelope"></i>
-					Email
-				</a>
+					<a
+						class="glass-btn btn-stagger"
+						href="https://wa.me/5561981015565"
+						data-pt="WhatsApp"
+						data-en="WhatsApp"
+					>
+						<i class="bi bi-whatsapp"></i>
+						<span>WhatsApp</span>
+					</a>
 
-				<a class="glass-btn" href="https://github.com/pedrobritx">
-					<i class="bi bi-github"></i>
-					GitHub
-				</a>
+					<a
+						class="glass-btn btn-stagger"
+						href="mailto:teacher.pedro.brito@gmail.com"
+						id="emailBtn"
+						data-pt="Email"
+						data-en="Email"
+					>
+						<i class="bi bi-envelope"></i>
+						<span>Email</span>
+						<span class="copy-tooltip" id="copyTooltip">Copy</span>
+					</a>
 
-				<a class="glass-btn" href="https://linkedin.com/in/pedrobritx">
-					<i class="bi bi-linkedin"></i>
-					LinkedIn
-				</a>
+					<a
+						class="glass-btn btn-stagger"
+						href="https://github.com/pedrobritx"
+						data-pt="GitHub"
+						data-en="GitHub"
+					>
+						<i class="bi bi-github"></i>
+						<span>GitHub</span>
+					</a>
+
+					<a
+						class="glass-btn btn-stagger"
+						href="https://linkedin.com/in/pedrobritx"
+						data-pt="LinkedIn"
+						data-en="LinkedIn"
+					>
+						<i class="bi bi-linkedin"></i>
+						<span>LinkedIn</span>
+					</a>
+				<div class="testimonial-container" id="testimonialContainer">
+					<div class="testimonial active">
+						<p>"Best English teacher I've ever had! Truly personalized."</p>
+						<span>- Sara P.</span>
+					</div>
+					<div class="testimonial">
+						<p>"My confidence in speaking improved tremendously."</p>
+						<span>- Victor A.</span>
+					</div>
+					<div class="testimonial">
+						<p>"Creative, fun and high-impact lessons. Highly recommended!"</p>
+						<span>- Daniela F.</span>
+					</div>
+				</div>
 			</div>
 		</div>
 

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400&family=Cookie&family=Outfit:wght@300;400;600&display=swap");
+
 body {
 	margin: 0;
 	font-family: "JetBrains Mono", monospace;
@@ -45,16 +47,105 @@ h1 {
 	margin-bottom: 30px;
 }
 
+/* --- Loader --- */
+#loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #0a0a0a;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+#loader img {
+	width: 120px;
+	height: 120px;
+	animation: pulse 2s infinite ease-in-out;
+}
+
+#loader.fade-out {
+	opacity: 0;
+	visibility: hidden;
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		transform: scale(0.9);
+		opacity: 0.8;
+	}
+	50% {
+		transform: scale(1.1);
+		opacity: 1;
+	}
+}
+
+/* --- Lang Toggle --- */
+.lang-toggle {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(10px);
+	padding: 5px;
+	border-radius: 20px;
+	display: flex;
+	gap: 5px;
+	z-index: 100;
+	cursor: pointer;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	transition: transform 0.3s ease;
+}
+
+.lang-toggle:hover {
+	transform: scale(1.05);
+}
+
+.lang-toggle span {
+	font-size: 10px;
+	font-weight: 600;
+	padding: 5px 10px;
+	border-radius: 15px;
+	color: rgba(198, 179, 180, 0.5);
+	transition: all 0.3s ease;
+}
+
+.lang-toggle span.active {
+	background: rgba(198, 179, 180, 0.2);
+	color: #c6b3b4;
+}
+
+/* --- Main Content Revelation --- */
+.main-content {
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+
+.main-content.visible {
+	opacity: 1;
+}
+
 /* profile logo */
 
 .profile-logo {
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 	border-radius: 50%;
 	margin-bottom: 30px;
-	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	border: 2px solid rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(5px);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.profile-logo:hover {
+	transform: rotate(5deg) scale(1.1);
+	box-shadow: 0 15px 40px rgba(198, 179, 180, 0.2);
 }
 
 /* watermark */
@@ -91,36 +182,152 @@ h1 {
 
 .glass-btn {
 	display: flex;
-
 	align-items: center;
-
 	justify-content: center;
-
 	gap: 10px;
-
 	padding: 16px;
-
 	border-radius: 14px;
-
 	text-decoration: none;
-
 	color: #c6b3b4;
 	font-family: "JetBrains Mono", monospace;
 	font-size: 16px;
 	font-weight: 300;
-
 	background: rgba(255, 255, 255, 0.08);
-
 	border: 1px solid rgba(255, 255, 255, 0.15);
-
 	backdrop-filter: blur(18px);
-
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-
 	transition:
-		transform 0.25s,
+		all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
 		background 0.25s,
 		box-shadow 0.25s;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+/* --- Copy Tooltip --- */
+.copy-tooltip {
+	position: absolute;
+	top: -30px;
+	right: 10px;
+	background: #c6b3b4;
+	color: #0a0a0a;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 10px;
+	font-weight: 600;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+
+.copy-tooltip.show {
+	opacity: 1;
+}
+
+/* --- Staggered Buttons --- */
+.btn-stagger {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-stagger.reveal {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* --- Testimonials --- */
+.testimonial-container {
+	margin-top: 40px;
+	height: 80px;
+	position: relative;
+	overflow: hidden;
+}
+
+.testimonial {
+	position: absolute;
+	width: 100%;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: all 0.8s ease;
+}
+
+.testimonial.active {
+	opacity: 0.7;
+	transform: translateY(0);
+}
+
+.testimonial p {
+	font-size: 13px;
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
+.testimonial span {
+	font-size: 11px;
+	font-weight: 300;
+	opacity: 0.8;
+}
+
+/* premium effects */
+.glass-btn::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("https://grainy-gradients.vercel.app/noise.svg");
+	opacity: 0.03;
+	pointer-events: none;
+	z-index: -1;
+}
+
+.glass-btn::after {
+	content: "";
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: conic-gradient(
+		from 0deg,
+		transparent,
+		rgba(198, 179, 180, 0.3),
+		transparent 30%
+	);
+	animation: rotateBeam 4s linear infinite;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	z-index: -1;
+}
+
+.glass-btn:hover::after {
+	opacity: 1;
+}
+
+@keyframes rotateBeam {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* liquid hover */
+
+.glass-btn:hover {
+	background: rgba(255, 255, 255, 0.15);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* liquid press */
+
+.glass-btn:active {
+	transform: scale(0.95);
 }
 
 /* liquid hover */
