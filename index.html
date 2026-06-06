@@ -6,16 +6,19 @@
 
 		<meta
 			name="description"
-			content="English with Pedro - Premium online lessons for individuals and groups."
+			content="English with Pedro — online English lessons, plus teaching tools and translation software for educators and translators."
 		/>
 		<meta
 			name="keywords"
-			content="English teacher, ESL, online lessons, learn English, Pedro Brito"
+			content="English teacher, ESL, EFL, online lessons, learn English, lesson framework, translation tool, Verbalis, Pedro Brito"
 		/>
+		<meta name="theme-color" content="#0a0e1a" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#f4f1ec" media="(prefers-color-scheme: light)" />
+
 		<meta property="og:title" content="English with Pedro" />
 		<meta
 			property="og:description"
-			content="Experience premium, tailored English lessons with a focus on communication and growth."
+			content="Online English lessons, teaching tools, and translation software — all in one place."
 		/>
 		<meta property="og:image" content="logo.png" />
 		<meta property="og:type" content="website" />
@@ -24,122 +27,83 @@
 
 		<link rel="icon" type="image/png" href="logo.png" />
 
+		<!-- Set theme before first paint to avoid flash of wrong theme. -->
+		<script>
+			(function () {
+				try {
+					var stored = localStorage.getItem("ewp-theme");
+					var theme =
+						stored ||
+						(window.matchMedia &&
+						window.matchMedia("(prefers-color-scheme: light)").matches
+							? "light"
+							: "dark");
+					document.documentElement.setAttribute("data-theme", theme);
+				} catch (e) {
+					document.documentElement.setAttribute("data-theme", "dark");
+				}
+			})();
+		</script>
+
 		<link rel="stylesheet" href="style.css" />
 
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap"
+			rel="stylesheet"
+		/>
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
 		/>
-
-		<link
-			href="https://fonts.googleapis.com/css2?family=Cookie&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
-			rel="stylesheet"
-		/>
 	</head>
 
 	<body>
-		<div id="loader">
-			<img src="logo.png" alt="Loading..." />
+		<div id="loader" aria-hidden="true">
+			<img src="logo.png" alt="" />
 		</div>
 
-		<div class="lang-toggle" id="langToggle">
-			<span class="active">PT</span>
-			<span>EN</span>
-		</div>
-
-		<div class="main-content" id="mainContent">
+		<!-- Ambient background -->
+		<div class="atmosphere" aria-hidden="true">
 			<div class="blob blob1"></div>
 			<div class="blob blob2"></div>
 			<div class="blob blob3"></div>
-
-			<div class="watermark">
-				<img src="logo.png" alt="" />
-			</div>
-
-			<div class="container">
-				<img src="logo.png" class="profile-logo" alt="Pedro Logo" />
-
-				<h1 data-pt="English with Pedro" data-en="English with Pedro">
-					English with Pedro
-				</h1>
-
-				<p
-					class="subtitle"
-					data-pt="Online English Lessons"
-					data-en="Online English Lessons"
-				>
-					Online English Lessons
-				</p>
-
-				<div class="links">
-					<a
-						class="glass-btn btn-stagger"
-						href="https://calendar.app.google/aBgQfrGp6K5Vo17Y8"
-						data-pt="Agende uma aula"
-						data-en="Book a lesson"
-					>
-						<i class="bi bi-calendar-check"></i>
-						<span>Agende uma aula</span>
-					</a>
-
-					<a
-						class="glass-btn btn-stagger"
-						href="https://wa.me/5561981015565"
-						data-pt="WhatsApp"
-						data-en="WhatsApp"
-					>
-						<i class="bi bi-whatsapp"></i>
-						<span>WhatsApp</span>
-					</a>
-
-					<a
-						class="glass-btn btn-stagger"
-						href="mailto:teacher.pedro.brito@gmail.com"
-						id="emailBtn"
-						data-pt="E-mail"
-						data-en="Email"
-					>
-						<i class="bi bi-envelope"></i>
-						<span>Email</span>
-						<span class="copy-tooltip" id="copyTooltip">Copy</span>
-					</a>
-
-					<a
-						class="glass-btn btn-stagger"
-						href="https://github.com/pedrobritx"
-						data-pt="GitHub"
-						data-en="GitHub"
-					>
-						<i class="bi bi-github"></i>
-						<span>GitHub</span>
-					</a>
-
-					<a
-						class="glass-btn btn-stagger"
-						href="https://linkedin.com/in/pedrobritx"
-						data-pt="LinkedIn"
-						data-en="LinkedIn"
-					>
-						<i class="bi bi-linkedin"></i>
-						<span>LinkedIn</span>
-					</a>
-				<div class="testimonial-container" id="testimonialContainer">
-					<div class="testimonial active">
-						<p>"Best English teacher I've ever had! Truly personalized."</p>
-						<span>- Victor C.</span>
-					</div>
-					<div class="testimonial">
-						<p>"My confidence in speaking improved tremendously."</p>
-						<span>- Sara A.</span>
-					</div>
-					<div class="testimonial">
-						<p>"Creative, fun and high-impact lessons. Highly recommended!"</p>
-						<span>- Daniela F.</span>
-					</div>
-				</div>
-			</div>
+			<div class="watermark"><img src="logo.png" alt="" /></div>
 		</div>
 
+		<header class="controls">
+			<button
+				type="button"
+				class="ctrl-btn"
+				id="themeToggle"
+				aria-label="Toggle light/dark theme"
+			>
+				<i class="bi bi-moon-stars" aria-hidden="true"></i>
+			</button>
+
+			<div
+				class="lang-toggle"
+				id="langToggle"
+				role="button"
+				tabindex="0"
+				aria-label="Change language"
+			>
+				<span data-lang="pt">PT</span>
+				<span data-lang="en">EN</span>
+			</div>
+		</header>
+
+		<main class="main-content" id="mainContent">
+			<section class="hero" id="hero" aria-label="Profile"></section>
+			<div class="sections" id="sections"></div>
+
+			<footer class="site-footer">
+				<p class="footer-mark">© <span id="year"></span> Pedro Brito</p>
+			</footer>
+		</main>
+
+		<script src="data.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>
