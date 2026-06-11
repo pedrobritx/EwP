@@ -57,6 +57,16 @@ const SECTIONS = [
 				},
 				href: "https://pedrobritx.github.io/verbalis/",
 			},
+			{
+				id: "notux",
+				icon: "bi-display",
+				label: { pt: "NotUX", en: "NotUX" },
+				note: {
+					pt: "Quadro digital online para educação",
+					en: "Online digital board for education",
+				},
+				href: "https://pedrobritx.github.io/NotUX/",
+			},
 		],
 	},
 	{
