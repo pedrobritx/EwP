@@ -67,6 +67,16 @@ const SECTIONS = [
 				},
 				href: "https://pedrobritx.github.io/NotUX/",
 			},
+			{
+				id: "framio",
+				icon: "bi-image",
+				label: { pt: "Framio", en: "Framio" },
+				note: {
+					pt: "Galeria de arte para Frame TV",
+					en: "Living gallery for Frame TV",
+				},
+				href: "https://pedrobritx.github.io/framio/",
+			},
 		],
 	},
 	{
